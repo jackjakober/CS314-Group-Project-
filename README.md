@@ -8,6 +8,6 @@ Some code that I wrote entirerly by myself for my team is in
 
 server/src/main/java/com/tco/misc/OptimizeTour.java 
 
-Here I wrote an algorithm to optimize a users trip by reordering places based on what places are near. (nearest neighbor algorithm). This was our only optimization method as our team did not finish ThreeOpt or TwoOpt optimization methods. The solution I wrote was implemented correctly according our tests and our professors test that were used to grade us. 
+Here I wrote an algorithm to optimize a users trip by reordering places based on what places are near. (nearest neighbor algorithm). The solution I wrote was implemented correctly according our tests and our professors test that were used to grade us. 
 
 This is just an example of a codebase that I have worked on and some code that I wrote.  
