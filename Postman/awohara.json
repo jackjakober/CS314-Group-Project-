@@ -1,0 +1,394 @@
+{
+	"info": {
+		"_postman_id": "76d2bab3-4f58-4cc4-bc7f-a89a123c76f2",
+		"name": "postman-collection",
+		"description": "This is a template for postman collections in CS314.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Distances",
+			"item": [
+				{
+					"name": "distancesrequest1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "75da2d80-5f12-409f-ae8d-325eb968f369",
+								"exec": [
+									"pm.test(\"Returns the correct distances values.\", () => {\r",
+									"    const response = pm.response.json();\r",
+									"    const expectedDistances = [0,0,0,0];\r",
+									"    pm.expect(expectedDistances).to.eql(response.distances);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "32805878-b48e-4d04-b5a5-7cd6f84a3252",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"requestType\"    : \"distances\",\r\n  \"places\"         : [{\"name\": \"place0\", \"latitude\": \"40.6\", \"longitude\": \"-105.1\"},\r\n                      {\"name\": \"place0\", \"latitude\": \"40.6\", \"longitude\": \"-105.1\"},\r\n                      {\"name\": \"place0\", \"latitude\": \"40.6\", \"longitude\": \"-105.1\"},\r\n\t\t      {\"name\": \"place0\", \"latitude\": \"40.6\", \"longitude\": \"-105.1\"}],\r\n  \"earthRadius\"    : 6371.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}}/api/distances"
+					},
+					"response": []
+				},
+				{
+					"name": "distancesrequest2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "75da2d80-5f12-409f-ae8d-325eb968f369",
+								"exec": [
+									"pm.test(\"Returns the correct distances values.\", () => {\r",
+									"    const response = pm.response.json();\r",
+									"    const expectedDistances = [9, 4, 9, 2];\r",
+									"    pm.expect(expectedDistances).to.eql(response.distances);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "9a639fc8-e510-414d-8ffc-f9d5376ee6f1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"requestType\"    : \"distances\",\r\n  \"places\"         : [{\"name\":\"Soul Buoy\", \"latitude\":  \"0.0\",  \"longitude\": \"0.0\"},\r\n                      {\"name\": \"Incheon\", \"latitude\":  \"37.56\", \"longitude\": \"126.0\"},\r\n                      {\"name\": \"Unorganized Borough\", \"latitude\":  \"65.07\", \"longitude\": \"-153.98\"},\r\n\t                    {\"name\": \"Tshopo\", \"latitude\":  \"1.49\", \"longitude\": \"27.16\"}],\r\n  \"earthRadius\"    : 4.5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}}/api/distances"
+					},
+					"response": []
+				},
+				{
+					"name": "distancesrequest3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "75da2d80-5f12-409f-ae8d-325eb968f369",
+								"exec": [
+									"pm.test(\"Returns the correct distances values.\", () => {\r",
+									"    const response = pm.response.json();\r",
+									"    const expectedDistances = [19904, 18903, 16691, 17682];\r",
+									"    pm.expect(expectedDistances).to.eql(response.distances);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "07dcf233-90be-4302-b699-5abc25497965",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"requestType\"    : \"distances\",\r\n    \"places\"         : [{\"name\":\"Artic Ocean\", \"latitude\":  \"89.0\",  \"longitude\": \"179.0\"},\r\n                        {\"name\": \"South Pole\", \"latitude\":  \"-90.0\", \"longitude\": \"180.0\"},\r\n                        {\"name\": \"Artic Ocean\", \"latitude\":  \"80.0\", \"longitude\": \"-180.0\"},\r\n                        {\"name\": \"Southern Ocean\", \"latitude\":  \"-70.0\", \"longitude\": \"-170.0\"}],\r\n    \"earthRadius\"    : 6371.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}}/api/distances"
+					},
+					"response": []
+				},
+				{
+					"name": "distancesrequest4",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "75da2d80-5f12-409f-ae8d-325eb968f369",
+								"exec": [
+									"pm.test(\"Returns the correct distances values.\", () => {\r",
+									"    const response = pm.response.json();\r",
+									"    const expectedDistances = [10008, 13343, 10008, 13343];\r",
+									"    pm.expect(expectedDistances).to.eql(response.distances);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "a917d771-8978-431b-b779-ea5d6ed4a666",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"requestType\"    : \"distances\",\r\n  \"places\"         : [{\"name\":\"place1\", \"latitude\":  \"45.0\",  \"longitude\": \"-45.0\"},\r\n                      {\"name\": \"place2\", \"latitude\":  \"-45.0\", \"longitude\": \"-45.0\"},\r\n                      {\"name\": \"place3\", \"latitude\":  \"45.0\", \"longitude\": \"45.0\"},\r\n                      {\"name\": \"place4\", \"latitude\":  \"-45.0\", \"longitude\": \"45.0\"}],\r\n  \"earthRadius\"    : 6371.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}}/api/distances"
+					},
+					"response": []
+				}
+			],
+			"id": "046606b0-1b1a-4b26-a258-a465bc0422f1"
+		},
+		{
+			"name": "Config",
+			"item": [
+				{
+					"name": "configtest1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e4430d34-bd34-4ae6-a122-73a26745eac1",
+								"exec": [
+									"pm.test(\"Response is HTTP200 status\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Server-side team name is correct\", () => {\r",
+									"    const response = pm.response.json();\r",
+									"    const expectedTeamName = pm.collectionVariables.get(\"TEAM_NAME\");\r",
+									"    pm.expect(response.serverName).to.eql(expectedTeamName);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Features includes distances\", () => {\r",
+									"    const response = pm.response.json();\r",
+									"    const expectedFeature = \"distances\";\r",
+									"    pm.expect(response.features).contain(expectedFeature);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "94235c4f-b8a3-4537-8cda-df358f60ec72",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"requestType\": \"config\",\r\n    \"features\": [\"config\"] \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}}/api/config"
+					},
+					"response": []
+				}
+			],
+			"id": "ffb82065-e54b-4451-b6dd-a2aea6dc66f5"
+		},
+		{
+			"name": "Find",
+			"item": [
+				{
+					"name": "findrequest1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9cd4a8cd-9afd-4d0d-b59d-ebbfd0417b28",
+								"exec": [
+									"pm.test(\"Returns the correct count of places.\", () => {\r",
+									"    const response = pm.response.json();\r",
+									"    pm.expect(1).to.eql(response.places.length);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Returns the correct places (compares the names)\", () => {\r",
+									"    const response = pm.response.json();\r",
+									"    const placeName = \"Spokane International Airport\";\r",
+									"    pm.expect(placeName).to.eql(response.places[0].name);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "a2ec99d0-57ef-45cc-8611-94f91d313175",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"requestType\": \"find\",\r\n    \"match\": \"kgeg\",\r\n    \"limit\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}}/api/find"
+					},
+					"response": []
+				},
+				{
+					"name": "findrequest2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "12d26825-88d9-4e98-9066-61ba20026ed8",
+								"exec": [
+									"pm.test(\"Returns the correct count of places.\", () => {\r",
+									"    const response = pm.response.json();\r",
+									"    pm.expect(1).to.eql(response.places.length);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Returns correct places.\", () => {\r",
+									"    const response = pm.response.json();\r",
+									"    const place = {\r",
+									"\t\t\"name\": \"Purple Springs Airport\",\r",
+									"\t\t\"latitude\": \"49.6877\",\r",
+									"\t\t\"longitude\": \"-111.875202\",\r",
+									"\t\t\"id\": \"CA-0669\",\r",
+									"\t\t\"altitude\": \"2870\",\r",
+									"\t\t\"municipality\": \"Purple Springs\",\r",
+									"\t\t\"type\": \"closed\"\r",
+									"\t};\r",
+									"    pm.expect([place]).to.eql(response.places);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "65806130-e083-4e41-b778-6fa2ab799f30",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"requestType\": \"find\",\r\n\t\"match\": \"purple\",\r\n\t\"limit\": 1,\r\n\t\"found\": 1,\r\n\t\"places\": [{\r\n\t\t\"name\": \"Purple Springs Airport\",\r\n\t\t\"latitude\": \"49.6877\",\r\n\t\t\"longitude\": \"-111.875202\",\r\n\t\t\"id\": \"CA-0669\",\r\n\t\t\"altitude\": \"2870\",\r\n\t\t\"municipality\": \"Purple Springs\",\r\n\t\t\"type\": \"closed\"\r\n\t}]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}}/api/find"
+					},
+					"response": []
+				},
+				{
+					"name": "findrequest3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f9e5bbc2-baff-4f6e-95ae-cd4b8f91201f",
+								"exec": [
+									"pm.test(\"Returns the correct count of places.\", () => {\r",
+									"    const response = pm.response.json();\r",
+									"    pm.expect(3).to.eql(response.places.length);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "24bab80c-d23d-4364-86e1-169fa4927b48",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"requestType\" : \"find\",\r\n   \"match\" : \"Denver\",\r\n   \"limit\" : 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BASE_URL}}/api/find"
+					},
+					"response": []
+				}
+			],
+			"id": "600b1b7e-476b-434a-be5b-9012cad48559"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "8aabe89b-6e72-4b52-b661-a0110bb4c506",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "3d7361cf-3493-4313-859a-bacb1ab929ea",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "0726b2c7-014c-4951-921f-4e2a9e6f02f8",
+			"key": "BASE_URL",
+			"value": "http://localhost:41300"
+		},
+		{
+			"id": "3f0123e4-413a-49f2-af85-58d5228d72ab",
+			"key": "TEAM_NAME",
+			"value": "t19 BeerBytes",
+			"type": "string"
+		}
+	]
+}
