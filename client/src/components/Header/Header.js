@@ -1,0 +1,120 @@
+import React from 'react';
+import { Container, Button } from 'reactstrap';
+import { CLIENT_TEAM_NAME } from '../../utils/constants';
+import Menu from './Menu';
+import { useToggle } from '../../hooks/useToggle';
+import AddPlace from './AddPlace';
+import LoadFile from './LoadFile';
+import SaveTrip from './SaveTrip';
+import ShorterTrip from './ShorterTrip';
+import ServerSettings from './ServerSettings';
+import { IoMdClose } from 'react-icons/io';
+
+export default function Header(props) {
+	const [showAddPlace, toggleAddPlace] = useToggle(false);
+	const [showServerSettings, toggleServerSettings] = useToggle(false);
+	const [showLoadFile, toggleLoadFile] = useToggle(false);
+	const [showShorterTrip, toggleShorterTrip] = useToggle(false);
+	const [showSaveTrip, toggleSaveTrip] = useToggle(false);
+	return (
+		<React.Fragment>
+			<HeaderContents
+				toggleAbout={props.toggleAbout}
+				showAbout={props.showAbout}
+				placeActions={props.placeActions}
+				tourActions={props.tourActions}
+				shorterTrip={props.shorterTrip}
+				disableRemoveAll={props.disableRemoveAll}
+				toggleAddPlace={toggleAddPlace}
+				toggleServerSettings={toggleServerSettings}
+				toggleLoadFile={toggleLoadFile}
+				toggleShorterTrip={toggleShorterTrip}
+				toggleSaveTrip={toggleSaveTrip}
+			/>
+			<AppModals
+				showAddPlace={showAddPlace} toggleAddPlace={toggleAddPlace}
+				showLoadFile={showLoadFile} toggleLoadFile={toggleLoadFile}
+				showSaveTrip={showSaveTrip} toggleSaveTrip={toggleSaveTrip}
+				showShorterTrip={showShorterTrip} toggleShorterTrip={toggleShorterTrip}
+				showServerSettings={showServerSettings} toggleServerSettings={toggleServerSettings}
+				placeActions={props.placeActions}
+				processServerConfigSuccess={props.processServerConfigSuccess}
+				serverSettings={props.serverSettings}
+				setTripName={props.setTripName}
+			/>
+		</React.Fragment>
+	);
+}
+
+function HeaderContents(props) {
+	return (
+		<div className='full-width header vertical-center'>
+			<Container>
+				<div className='header-container'>
+					<h1
+						className='tco-text-upper header-title'
+						data-testid='header-title'
+					>
+						{CLIENT_TEAM_NAME}
+					</h1>
+					<HeaderButton {...props} />
+				</div>
+			</Container>
+		</div>
+	);
+}
+
+function HeaderButton(props) {
+	return props.showAbout ? (
+		<Button
+			data-testid='close-about-button'
+			color='primary'
+			onClick={() => props.toggleAbout()}
+		>
+			<IoMdClose size={32} />
+		</Button>
+	) : (
+		<Menu
+			toggleAbout={props.toggleAbout}
+			placeActions={props.placeActions}
+			tourActions={props.tourActions}
+			shorterTrip={props.shorterTrip}
+			toggleAddPlace={props.toggleAddPlace}
+			toggleLoadFile={props.toggleLoadFile}
+			toggleShorterTrip={props.toggleShorterTrip}
+			toggleSaveTrip={props.toggleSaveTrip}
+			disableRemoveAll={props.disableRemoveAll}
+			toggleServerSettings={props.toggleServerSettings}
+		/>
+	);
+}
+
+function AppModals(props) {
+	return (
+		<>
+			<AddPlace
+				isOpen={props.showAddPlace}
+				toggleAddPlace={props.toggleAddPlace}
+				append={props.placeActions.append}
+				appendBunch={props.placeActions.appendBunch}
+			/>
+			<ServerSettings
+				isOpen={props.showServerSettings}
+				toggleOpen={props.toggleServerSettings}
+				processServerConfigSuccess={props.processServerConfigSuccess}
+				serverSettings={props.serverSettings}
+			/>
+			<LoadFile
+				isOpen={props.showLoadFile}
+				toggleLoadFile={props.toggleLoadFile}
+				placeActions={props.placeActions}
+				setTripName={props.setTripName}
+			/>
+			<SaveTrip
+				isOpen={props.showSaveTrip}
+				toggleSaveTrip={props.toggleSaveTrip}
+			/>
+			
+		</>
+	);
+}
